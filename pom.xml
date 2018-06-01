@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jooby</groupId>
     <artifactId>jooby-project</artifactId>
-    <version>1.2.3</version>
+    <version>1.4.0</version>
   </parent>
 
   <artifactId>jdbi-guide</artifactId>
@@ -14,7 +14,7 @@
   <version>1.0</version>
 
   <properties>
-    <jooby.version>1.2.3</jooby.version>
+    <jooby.version>1.4.0</jooby.version>
 
     <!-- Startup class -->
     <application.class>jdbi.App</application.class>

@@ -18,7 +18,7 @@ Make sure you have the following installed on your computer:
 Open a terminal/console and paste:
 
 ```bash
-mvn archetype:generate -B -DgroupId=org.jooby.guides -DartifactId=jdbi-guide -Dversion=1.0 -DarchetypeArtifactId=jooby-archetype -DarchetypeGroupId=org.jooby -DarchetypeVersion=1.2.3
+mvn archetype:generate -B -DgroupId=org.jooby.guides -DartifactId=jdbi-guide -Dversion=1.0 -DarchetypeArtifactId=jooby-archetype -DarchetypeGroupId=org.jooby -DarchetypeVersion=1.4.0
 ```
 
 Enter the application directory:
@@ -37,7 +37,7 @@ Add the [jackson](https://github.com/jooby-project/jooby/tree/master/jooby-jacks
 <dependency>
   <groupId>org.jooby</groupId>
   <artifactId>jooby-jackson</artifactId>
-  <version>1.2.3</version>
+  <version>1.4.0</version>
 </dependency>
 ```
 
@@ -59,7 +59,7 @@ Add the [jdbi](https://github.com/jooby-project/jooby/tree/master/jooby-jdbi) de
 <dependency>
   <groupId>org.jooby</groupId>
   <artifactId>jooby-jdbi</artifactId>
-  <version>1.2.3</version>
+  <version>1.4.0</version>
 </dependency>
 ```
 
