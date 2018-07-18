@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jooby-guides/jdbi-guide.svg?branch=master)](https://travis-ci.org/jooby-guides/jdbi-guide)
+[![Build Status](https://travis-ci.org/jooby-project/jdbi-guide.svg?branch=master)](https://travis-ci.org/jooby-project/jdbi-guide)
 # jdbi guide
 
 In this guide you will learn how to build a **JSON API** for ```Pets``` and persist them into a **relational database** using the [jdbi](https://github.com/jooby-project/jooby/tree/master/jooby-jdbi) module.

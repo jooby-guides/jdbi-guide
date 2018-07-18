@@ -30,58 +30,59 @@ public class App extends Jooby {
         }));
 
     /** Pet API. */
-    use("/api/pets")
-        /** List pets. */
-        .get(req -> {
-          return require(DBI.class).inTransaction((handle, status) -> {
-            PetRepository repo = handle.attach(PetRepository.class);
-            List<Pet> pets = repo.list();
-            return pets;
-          });
-        })
-        /** Get a pet by ID. */
-        .get("/:id", req -> {
-          return require(DBI.class).inTransaction((handle, status) -> {
-            int id = req.param("id").intValue();
-
-            PetRepository repo = handle.attach(PetRepository.class);
-            Pet pet = repo.findById(id);
-            return pet;
-          });
-        })
-        /** Create a pet. */
-        .post(req -> {
-          return require(DBI.class).inTransaction((handle, status) -> {
-            // read from HTTP body
-            Pet pet = req.body(Pet.class);
-
-            PetRepository repo = handle.attach(PetRepository.class);
-            int petId = repo.insert(pet);
-            pet.setId(petId);
-            return pet;
-          });
-        })
-        /** Update a pet. */
-        .put(req -> {
-          return require(DBI.class).inTransaction((handle, status) -> {
-            // read from HTTP body
-            Pet pet = req.body(Pet.class);
-
-            PetRepository repo = handle.attach(PetRepository.class);
-            repo.update(pet);
-            return pet;
-          });
-        })
-        /** Delete a pet by ID. */
-        .delete("/:id", req -> {
-          return require(DBI.class).inTransaction((handle, status) -> {
-            int id = req.param("id").intValue();
-
-            PetRepository repo = handle.attach(PetRepository.class);
-            repo.deleteById(id);
-            return Results.noContent();
-          });
+    path("/api/pets", () -> {
+      /** List pets. */
+      get(req -> {
+        return require(DBI.class).inTransaction((handle, status) -> {
+          PetRepository repo = handle.attach(PetRepository.class);
+          List<Pet> pets = repo.list();
+          return pets;
         });
+      });
+      /** Get a pet by ID. */
+      get("/:id", req -> {
+        return require(DBI.class).inTransaction((handle, status) -> {
+          int id = req.param("id").intValue();
+
+          PetRepository repo = handle.attach(PetRepository.class);
+          Pet pet = repo.findById(id);
+          return pet;
+        });
+      });
+      /** Create a pet. */
+      post(req -> {
+        return require(DBI.class).inTransaction((handle, status) -> {
+          // read from HTTP body
+          Pet pet = req.body(Pet.class);
+
+          PetRepository repo = handle.attach(PetRepository.class);
+          int petId = repo.insert(pet);
+          pet.setId(petId);
+          return pet;
+        });
+      });
+      /** Update a pet. */
+      put(req -> {
+        return require(DBI.class).inTransaction((handle, status) -> {
+          // read from HTTP body
+          Pet pet = req.body(Pet.class);
+
+          PetRepository repo = handle.attach(PetRepository.class);
+          repo.update(pet);
+          return pet;
+        });
+      });
+      /** Delete a pet by ID. */
+      delete("/:id", req -> {
+        return require(DBI.class).inTransaction((handle, status) -> {
+          int id = req.param("id").intValue();
+
+          PetRepository repo = handle.attach(PetRepository.class);
+          repo.deleteById(id);
+          return Results.noContent();
+        });
+      });
+    });
   }
 
   public static void main(final String[] args) {
